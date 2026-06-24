@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Blog | E-Cell NPGC Lucknow</title>
+  <meta name="description" content="Read insights, student entrepreneurship stories, and ecosystem updates from the Entrepreneurship Cell of National PG College, Lucknow." />
+  <meta name="theme-color" content="#f3f5f0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══ LOADING SCREEN ══════════════════════════════════════════ -->
+  <div id="loader" class="loader-wrapper" aria-label="Loading E-Cell NPGC Blog" role="status">
+    <div class="loader-inner">
+      <svg class="loader-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon class="hex-outer" points="60,4 112,32 112,88 60,116 8,88 8,32" stroke="url(#hexGrad)" stroke-width="2" fill="none" filter="url(#glow-l)"/>
+        <polygon class="hex-inner" points="60,20 96,40 96,80 60,100 24,80 24,40" stroke="#6dc920" stroke-width="1.2" fill="rgba(76,172,0,0.06)" filter="url(#glow-l)"/>
+        <text x="60" y="72" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="40" fill="#4cac00" filter="url(#glow-l)">E</text>
+        <circle class="orbit-dot" cx="60" cy="4" r="4" fill="#4cac00" filter="url(#glow-l)"/>
+      </svg>
+      <div class="loader-brand">
+        <span class="loader-brand-name">E-CELL</span>
+        <span class="loader-brand-sub">NPGC &middot; LUCKNOW</span>
+      </div>
+      <div class="loader-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="loader-progress-fill" id="loaderProgress"></div>
+      </div>
+      <p class="loader-tagline">Initialising the Blog Hub...</p>
+      <div class="loader-particles" id="loaderParticles" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- ══ MAIN SITE ═══════════════════════════════════════════════ -->
+  <div id="site" class="site-wrapper">
+
+    <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- ── FIXED NAV ──────────────────────────────────────────── -->
+    <header class="site-header" id="siteHeader">
+      <nav class="nav-container" aria-label="Main navigation">
+
+        <a href="index.html" class="nav-brand" aria-label="E-Cell NPGC Home">
+          <div class="nav-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.1)"/>
+              <text x="20" y="26" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#4cac00">E</text>
+            </svg>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-main">E-Cell</span>
+            <span class="nav-brand-sub">NPGC &middot; Lucknow</span>
+          </div>
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="nav-links" role="list">
+          <li><a href="index.html#about"       class="nav-link" id="nav-about">About</a></li>
+          <li><a href="index.html#initiatives" class="nav-link" id="nav-initiatives">Initiatives</a></li>
+          <li><a href="team.html"              class="nav-link" id="nav-team">Team</a></li>
+          <li><a href="index.html#stats"       class="nav-link" id="nav-stats">Impact</a></li>
+          <li><a href="gallery.html"           class="nav-link" id="nav-gallery">Gallery</a></li>
+          <li><a href="blog.html"              class="nav-link" id="nav-blog">Blog</a></li>
+          <li><a href="index.html#contact"     class="nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+
+        <a href="contact.html" class="nav-cta" id="nav-cta">
+          <span>Join Us</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <!-- Hamburger (mobile) -->
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <!-- Mobile Drawer -->
+      <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+        <ul role="list">
+          <li><a href="index.html#about"       class="mobile-link" id="mob-about">About</a></li>
+          <li><a href="index.html#initiatives" class="mobile-link" id="mob-initiatives">Initiatives</a></li>
+          <li><a href="team.html"              class="mobile-link" id="mob-team">Team</a></li>
+          <li><a href="index.html#stats"       class="mobile-link" id="mob-stats">Impact</a></li>
+          <li><a href="gallery.html"           class="mobile-link" id="mob-gallery">Gallery</a></li>
+          <li><a href="blog.html"              class="mobile-link" id="mob-blog">Blog</a></li>
+          <li><a href="index.html#contact"     class="mobile-link" id="mob-contact">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="mobile-cta-btn" id="mob-join">Join the Cell &rarr;</a>
+        <div class="mobile-footer-note">
+          E-Cell NPGC &middot; Lucknow, UP &middot; Est. 2024
+        </div>
+      </div>
+    </header>
+
+    <!-- ── HERO ───────────────────────────────────────────────── -->
+    <section class="subpage-hero" aria-label="Blog Intro">
+      <div class="hero-eyebrow" data-reveal>
+        <div class="eyebrow-dot" aria-hidden="true"></div>
+        <span>Insights, News &amp; Innovation</span>
+      </div>
+      <h1 class="subpage-headline" data-reveal data-reveal-delay="100">
+        Articles on <span class="text-accent" id="typewriterTarget">Blog.</span>
+      </h1>
+      <p class="subpage-description" data-reveal data-reveal-delay="200">
+        Explore methodologies, announcements, case studies, and opportunities curated by National PG College's flagship Entrepreneurship Cell.
+      </p>
+    </section>
+
+    <!-- ── FILTER TABS ────────────────────────────────────────── -->
+    <div class="filter-container" data-reveal data-reveal-delay="250">
+      <button class="filter-btn active" onclick="filterBlog('all')">All Posts</button>
+      <button class="filter-btn" onclick="filterBlog('startup')">Startups</button>
+      <button class="filter-btn" onclick="filterBlog('innovation')">Innovation</button>
+      <button class="filter-btn" onclick="filterBlog('events')">Events</button>
+    </div>
+
+    <!-- ── BLOG CONTENT ───────────────────────────────────────── -->
+    <section class="blog-section" aria-label="Blog posts list">
+      
+      <!-- Featured Post -->
+      <article class="featured-blog-card" data-reveal data-reveal-delay="300" data-category="events">
+        <div class="blog-card-img-wrap">
+          <svg viewBox="0 0 100 100" fill="none">
+            <rect x="20" y="20" width="60" height="60" rx="8" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.04)"/>
+            <line x1="20" y1="38" x2="80" y2="38" stroke="#4cac00" stroke-width="1.5"/>
+            <!-- Calendar ring holes at top -->
+            <circle cx="35" cy="20" r="2.5" fill="#4cac00"/>
+            <circle cx="50" cy="20" r="2.5" fill="#4cac00"/>
+            <circle cx="65" cy="20" r="2.5" fill="#4cac00"/>
+            <!-- Calendar grid lines representation -->
+            <path d="M35,46 L35,70 M50,46 L50,70 M65,46 L65,70" stroke="#4cac00" stroke-width="0.8" stroke-dasharray="1,2"/>
+            <text x="50" y="32" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="10" fill="#4cac00">AUG 2026</text>
+            <text x="50" y="60" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="18" fill="#4cac00">21</text>
+          </svg>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-meta">
+            <span class="blog-badge">Events</span>
+            <span>August 21, 2026</span>
+            <span>&middot;</span>
+            <span class="text-accent" style="font-weight: 700;">Upcoming Event</span>
+          </div>
+          <h2 class="blog-title">Upcoming Pitching Competition</h2>
+          <p class="blog-desc">Mark your calendars for August 21, 2026! UDYAM E-Cell is organizing a high-stakes campus Pitching Competition. While the official event name is yet to be confirmed, student founders and aspiring entrepreneurs are highly encouraged to start gearing up. Prepare your pitch decks and business models for this exciting opportunity to pitch in front of active investors and mentors.</p>
+          <div class="blog-author-wrap">
+            <div class="blog-author-avatar">UE</div>
+            <div class="blog-author-info">
+              <span class="blog-author-name">UDYAM E-Cell Team</span>
+              <span class="blog-author-role">National PG College</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Cards Grid -->
+      <div class="blog-grid" role="list">
+        
+        <article class="blog-card" role="listitem" data-reveal data-reveal-delay="80" data-category="startup">
+          <div class="blog-card-img-wrap">
+            <svg viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="30" stroke="#4cac00" stroke-width="1.2" fill="rgba(76,172,0,0.04)"/>
+              <path d="M35,65 L50,35 L65,65" stroke="#4cac00" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M42,50 L58,50" stroke="#4cac00" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span class="blog-badge">Startup</span>
+              <span>June 15, 2026</span>
+              <span>&middot;</span>
+              <span>4 min read</span>
+            </div>
+            <h3 class="blog-title">Incubation Support 2026 Cohort Announced</h3>
+            <p class="blog-desc">E-Cell NPGC officially selects 8 student-led startups for our intensive summer incubation support program. Learn about the ventures here.</p>
+            <div class="blog-author-wrap">
+              <div class="blog-author-avatar">AK</div>
+              <div class="blog-author-info">
+                <span class="blog-author-name">Arjun Kumar</span>
+                <span class="blog-author-role">President</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" role="listitem" data-reveal data-reveal-delay="160" data-category="innovation">
+          <div class="blog-card-img-wrap">
+            <svg viewBox="0 0 100 100" fill="none">
+              <path d="M50,25 L75,60 L25,60 Z" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.04)"/>
+              <circle cx="50" cy="45" r="4" fill="#4cac00"/>
+            </svg>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-meta">
+              <span class="blog-badge">Innovation</span>
+              <span>May 28, 2026</span>
+              <span>&middot;</span>
+              <span>6 min read</span>
+            </div>
+            <h3 class="blog-title">How Mentorship Accelerates Student Founder Growth</h3>
+            <p class="blog-desc">Why having a mentor is crucial. Priya shares her insights from connecting 50+ students with startup professionals.</p>
+            <div class="blog-author-wrap">
+              <div class="blog-author-avatar">PS</div>
+              <div class="blog-author-info">
+                <span class="blog-author-name">Priya Sharma</span>
+                <span class="blog-author-role">Vice President</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card for AKTU Visit -->
+        <article class="blog-card" role="listitem" data-reveal data-reveal-delay="240" data-category="events">
+          <a href="aktu-visit.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+            <div class="blog-card-img-wrap">
+              <svg viewBox="0 0 100 100" fill="none">
+                <polygon points="50,15 85,38 85,73 50,92 15,73 15,38" stroke="#4cac00" stroke-width="1.2" fill="rgba(76,172,0,0.05)"/>
+                <path d="M50,30 L50,65" stroke="#4cac00" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="50" cy="72" r="2.5" fill="#4cac00"/>
+              </svg>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-badge">Events</span>
+                <span>April 20, 2026</span>
+                <span>&middot;</span>
+                <span>4 min read</span>
+              </div>
+              <h3 class="blog-title">AKTU Incubation Centre Visit</h3>
+              <p class="blog-desc">National PG College E-Cell organized a guided industrial visit to Dr. A.P.J. Abdul Kalam Technical University (AKTU) Incubation Centre, exposing students to start-up infrastructure and funding tracks.</p>
+              <div class="blog-author-wrap">
+                <div class="blog-author-avatar">SM</div>
+                <div class="blog-author-info">
+                  <span class="blog-author-name">Sneha Mishra</span>
+                  <span class="blog-author-role">Events &amp; Outreach Head</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card for CM YUVA Exhibition -->
+        <article class="blog-card" role="listitem" data-reveal data-reveal-delay="320" data-category="events">
+          <a href="cm-yuva.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+            <div class="blog-card-img-wrap">
+              <svg viewBox="0 0 100 100" fill="none">
+                <rect x="30" y="30" width="40" height="40" rx="4" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.04)"/>
+                <circle cx="50" cy="50" r="8" stroke="#4cac00" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-badge">Events</span>
+                <span>July 31, 2025</span>
+                <span>&middot;</span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="blog-title">CM YUVA Exhibition</h3>
+              <p class="blog-desc">E-Cell NPGC delegation joins the massive CM YUVA Exhibition at Indira Gandhi Pratishthan, exploring micro-industrial setups and agricultural technology.</p>
+              <div class="blog-author-wrap">
+                <div class="blog-author-avatar">SM</div>
+                <div class="blog-author-info">
+                  <span class="blog-author-name">Sneha Mishra</span>
+                  <span class="blog-author-role">Events &amp; Outreach Head</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card for SAARANG '25 -->
+        <article class="blog-card" role="listitem" data-reveal data-reveal-delay="400" data-category="events">
+          <a href="Saarang_25.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+            <div class="blog-card-img-wrap">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="30" stroke="#4cac00" stroke-width="1.2" fill="rgba(76,172,0,0.04)"/>
+                <path d="M35,65 L50,35 L65,65" stroke="#4cac00" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M42,50 L58,50" stroke="#4cac00" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-badge">Events</span>
+                <span>March 21, 2025</span>
+                <span>&middot;</span>
+                <span>6 min read</span>
+              </div>
+              <h3 class="blog-title">SAARANG '25 EPL</h3>
+              <p class="blog-desc">NPGC Department of Commerce and IID host SAARANG '25 Entrepreneurial Pitch League, matching student innovators with capital and incubation commitments.</p>
+              <div class="blog-author-wrap">
+                <div class="blog-author-avatar">SM</div>
+                <div class="blog-author-info">
+                  <span class="blog-author-name">Sneha Mishra</span>
+                  <span class="blog-author-role">Events &amp; Outreach Head</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card for Annual Report 2025 -->
+        <article class="blog-card" role="listitem" data-reveal data-reveal-delay="480" data-category="events">
+          <a href="Anual_Rport_25.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+            <div class="blog-card-img-wrap">
+              <svg viewBox="0 0 100 100" fill="none">
+                <rect x="25" y="20" width="50" height="60" rx="4" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.04)"/>
+                <line x1="35" y1="35" x2="65" y2="35" stroke="#4cac00" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="35" y1="50" x2="65" y2="50" stroke="#4cac00" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="35" y1="65" x2="55" y2="65" stroke="#4cac00" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-badge">Events</span>
+                <span>April 15, 2025</span>
+                <span>&middot;</span>
+                <span>5 min read</span>
+              </div>
+              <h3 class="blog-title">UDYAM CELL Annual Report 2025</h3>
+              <p class="blog-desc">The official annual review detailing cell achievements, flagship event summaries of Eureka and SAARANG '25, and core team contributions.</p>
+              <div class="blog-author-wrap">
+                <div class="blog-author-avatar">PS</div>
+                <div class="blog-author-info">
+                  <span class="blog-author-name">Parth Srivastav</span>
+                  <span class="blog-author-role">President</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card for Hunar Launchpad Experience -->
+        <article class="blog-card" role="listitem" data-reveal data-reveal-delay="560" data-category="events">
+          <a href="Hunar_LaunchPad_Expo.html" style="text-decoration: none; color: inherit; display: block; height: 100%;">
+            <div class="blog-card-img-wrap">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="30" stroke="#4cac00" stroke-width="1.2" fill="rgba(76,172,0,0.04)"/>
+                <path d="M40,55 L50,45 L60,55" stroke="#4cac00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M50,45 L50,65" stroke="#4cac00" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M35,35 L65,35" stroke="#4cac00" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span class="blog-badge">Events</span>
+                <span>November 12, 2025</span>
+                <span>&middot;</span>
+                <span>4 min read</span>
+              </div>
+              <h3 class="blog-title">Hunar Launchpad Experience</h3>
+              <p class="blog-desc">E-Cell hosts the Hunar Launchpad briefing program, introducing a structured 6–7 month internship program to transform students from job seekers to creators.</p>
+              <div class="blog-author-wrap">
+                <div class="blog-author-avatar">SM</div>
+                <div class="blog-author-info">
+                  <span class="blog-author-name">Dr. Shubham Mishra</span>
+                  <span class="blog-author-role">Faculty Coordinator</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer class="site-footer" id="contact" aria-label="Site footer">
+      <div class="footer-container">
+        <div class="footer-col footer-brand-col">
+          <div class="footer-logo">
+            <svg viewBox="0 0 40 40" fill="none" width="34" height="34" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.08)"/>
+              <text x="20" y="26" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#4cac00">E</text>
+            </svg>
+            <span>UDYAM E-Cell</span>
+          </div>
+          <p class="footer-bio">UDYAM E-Cell of National Post Graduate College, Lucknow. Inspiring founders, building ecosystems, and driving the startup revolution from within campus walls.</p>
+          <div class="footer-socials" aria-label="Social media links">
+            <a href="http://www.instagram.com/udyam.ecell" target="_blank" rel="noopener noreferrer" class="f-social" id="footer-instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://in.linkedin.com/in/udyam-entrepreneurship-development-cell-npgc-lucknow-818b46377" target="_blank" rel="noopener noreferrer" class="f-social" id="footer-linkedin" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://whatsapp.com/channel/0029VbC8N3zFsn0aFT3yh838" target="_blank" rel="noopener noreferrer" class="f-social" id="footer-whatsapp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.729-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.905 1.481 5.482 0 9.95-4.466 9.954-9.948 0-2.656-1.03-5.153-2.902-7.027c-1.872-1.874-4.364-2.907-7.02-2.908-5.487 0-9.957 4.468-9.96 9.95-.001 1.776.475 3.51 1.376 5.02L1.44 21.03l5.207-1.876zm11.964-6.425c-.29-.145-1.72-.848-1.986-.944-.266-.096-.46-.145-.654.145-.193.29-.75.944-.919 1.138-.17.193-.338.217-.628.072-2.99-1.492-4.842-4.02-5.59-5.304-.174-.298-.018-.46.132-.609.135-.134.29-.338.435-.507.145-.17.193-.29.29-.483.097-.193.048-.361-.024-.507-.072-.145-.654-1.577-.896-2.158-.236-.569-.475-.491-.654-.5h-.56c-.193 0-.507.072-.773.361-.266.29-1.014.992-1.014 2.417 0 1.425 1.038 2.802 1.184 2.995.145.193 2.043 3.12 4.949 4.378.69.299 1.23.478 1.649.61.693.22 1.325.19 1.826.115.557-.084 1.72-.702 1.962-1.38.242-.678.242-1.258.17-1.38-.072-.122-.266-.193-.556-.339z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-links-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html#about"       class="footer-link" id="flink-about">About E-Cell</a></li>
+            <li><a href="index.html#initiatives" class="footer-link" id="flink-initiatives">Initiatives</a></li>
+            <li><a href="team.html"              class="footer-link" id="flink-team">Our Team</a></li>
+            <li><a href="index.html#stats"       class="footer-link" id="flink-impact">Impact</a></li>
+            <li><a href="gallery.html"           class="footer-link" id="flink-gallery">Gallery</a></li>
+            <li><a href="blog.html"              class="footer-link" id="flink-blog">Blog</a></li>
+            <li><a href="contact.html"        class="footer-link" id="flink-join">Join Us</a></li>
+            <li><a href="contact.html"     class="footer-link" id="flink-contact">Connect With Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-newsletter-col">
+          <h4 class="footer-col-title">Get in Touch</h4>
+          <div class="footer-contact-info">
+            <a href="tel:0522-402-1304" class="footer-contact-link" id="footer-phone">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.6" fill="none"/>
+              </svg>
+              0522 402 1304
+            </a>
+            <a href="mailto:ecellnpgc@gmail.com" class="footer-contact-link" id="footer-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+              ecellnpgc@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 E-Cell NPGC &middot; All Rights Reserved &middot; Lucknow, Uttar Pradesh</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-bottom-link" id="fbl-privacy">Privacy</a>
+          <a href="#" class="footer-bottom-link" id="fbl-terms">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Mobile sticky CTA bar -->
+    <div class="mobile-sticky-cta" id="mobileStickyBar" aria-hidden="true">
+      <a href="contact.html" class="mobile-sticky-btn" id="mobile-sticky-apply">Connect With Us</a>
+      <a href="tel:05224021304" class="mobile-sticky-btn mobile-sticky-ghost" id="mobile-sticky-call">Call Us</a>
+    </div>
+
+  </div><!-- /site-wrapper -->
+
+  <script src="app.js"></script>
+  
+  <!-- Client-side Blog Filtering Script -->
+  <script>
+    function filterBlog(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        const onclickAttr = btn.getAttribute('onclick') || '';
+        btn.classList.toggle('active', onclickAttr.includes(`'${category}'`));
+      });
+
+      const featuredCard = document.querySelector('.featured-blog-card');
+      const cards = document.querySelectorAll('.blog-card');
+
+      if (featuredCard) {
+        const featCat = featuredCard.getAttribute('data-category');
+        featuredCard.style.display = (category === 'all' || featCat === category) ? 'grid' : 'none';
+      }
+
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        card.style.display = (category === 'all' || cardCat === category) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

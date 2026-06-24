@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Our Team | E-Cell NPGC Lucknow</title>
+  <meta name="description" content="Meet the passionate student leaders powering UDYAM E-Cell at National PG College, Lucknow — the builders, creators, and innovators shaping Lucknow's startup ecosystem." />
+  <meta name="theme-color" content="#f3f5f0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── TEAM PAGE SPECIFIC STYLES ─────────────────────────────── */
+
+    /* Session badge */
+    .session-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 22px;
+      border-radius: var(--r-pill);
+      background: linear-gradient(135deg, rgba(76,172,0,0.12) 0%, rgba(76,172,0,0.04) 100%);
+      border: 1.5px solid rgba(76,172,0,0.25);
+      font-family: var(--font-h);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--lime-dark);
+      text-transform: uppercase;
+      margin: 0 auto clamp(28px, 4vw, 44px);
+      backdrop-filter: blur(6px);
+    }
+    .session-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 8px rgba(76,172,0,0.5);
+      animation: sessionPulse 2s ease-in-out infinite;
+    }
+    @keyframes sessionPulse {
+      0%, 100% { opacity: 0.6; }
+      50%      { opacity: 1; }
+    }
+
+    /* Section layout */
+    .team-page-section {
+      padding: clamp(48px, 8vw, 96px) var(--pad);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Vertical grid — 3 cols desktop, 2 tablet, 1 mobile */
+    .team-page-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(18px, 2.5vw, 28px);
+    }
+    @media (max-width: 900px) {
+      .team-page-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .team-page-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Team page card — vertical format */
+    .tp-card {
+      background: var(--glass);
+      border: 1.5px solid var(--glass-border);
+      border-radius: var(--r-xl);
+      padding: 28px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      cursor: default;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(76,172,0,0.05), 0 1px 4px rgba(0,0,0,0.04);
+      transition: transform var(--t-base) var(--ease-out),
+                  box-shadow var(--t-base) var(--ease-out),
+                  border-color var(--t-base) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .tp-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(76,172,0,0.04) 0%, transparent 60%);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+    .tp-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(76,172,0,0.14), 0 4px 12px rgba(0,0,0,0.06);
+      border-color: rgba(76,172,0,0.4);
+    }
+
+    /* Avatar section */
+    .tp-avatar-wrap {
+      position: relative;
+    }
+    .tp-avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--lime-pale) 0%, var(--lime-pale2) 100%);
+      border: 3px solid rgba(76,172,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .tp-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      border-radius: 50%;
+    }
+    .tp-avatar-initials {
+      font-family: var(--font-h);
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--lime-dark);
+      letter-spacing: 0.02em;
+    }
+    .tp-avatar-glow {
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(76,172,0,0.2) 0%, transparent 70%);
+      animation: avatarPulse 3s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+    @keyframes avatarPulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.08); }
+    }
+
+    /* Role badge */
+    .tp-role-badge {
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--lime);
+      color: #fff;
+      font-family: var(--font-h);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: var(--r-pill);
+      white-space: nowrap;
+      box-shadow: 0 3px 10px rgba(76,172,0,0.35);
+    }
+
+    /* Text info */
+    .tp-info {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .tp-name {
+      font-family: var(--font-h);
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+      font-weight: 700;
+      color: var(--ink-950);
+      line-height: 1.2;
+    }
+    .tp-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--lime-dark);
+      letter-spacing: 0.01em;
+    }
+    .tp-org {
+      font-size: 0.74rem;
+      color: var(--ink-400);
+    }
+
+    /* Department chip */
+    .tp-dept-chip {
+      display: inline-block;
+      padding: 3px 12px;
+      background: var(--lime-pale);
+      border: 1px solid rgba(76,172,0,0.2);
+      border-radius: var(--r-pill);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--lime-dark);
+      letter-spacing: 0.04em;
+    }
+
+    /* Divider line */
+    .tp-divider {
+      width: 36px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--lime), var(--lime-light));
+      border-radius: 99px;
+      margin: 2px auto;
+    }
+
+    /* Social links */
+    .tp-socials {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 4px;
+    }
+    .tp-social {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid var(--pearl-300);
+      background: var(--glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-600);
+      transition: all var(--t-fast) var(--ease-out);
+    }
+    .tp-social svg { width: 15px; height: 15px; }
+    .tp-social:hover {
+      background: var(--lime);
+      border-color: var(--lime);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(76,172,0,0.3);
+    }
+    .tp-social.tp-mail:hover {
+      background: #e04343;
+      border-color: #e04343;
+    }
+    .tp-social.tp-instagram:hover {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      border-color: #dc2743;
+    }
+
+    /* Stats banner */
+    .team-stats-banner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      background: var(--glass);
+      border: 1.5px solid var(--glass-border);
+      border-radius: var(--r-xl);
+      padding: clamp(20px, 4vw, 36px);
+      backdrop-filter: blur(12px);
+      margin-bottom: clamp(36px, 5vw, 56px);
+      box-shadow: 0 4px 24px rgba(76,172,0,0.07);
+    }
+    .team-stat-item {
+      text-align: center;
+    }
+    .team-stat-num {
+      font-family: var(--font-h);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--lime);
+      line-height: 1;
+    }
+    .team-stat-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-500);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+    @media (max-width: 480px) {
+      .team-stats-banner { grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 18px 14px; }
+      .team-stat-num { font-size: 1.5rem; }
+      .team-stat-label { font-size: 0.65rem; }
+    }
+
+    /* Join CTA strip */
+    .team-join-strip {
+      margin-top: clamp(48px, 6vw, 72px);
+      background: linear-gradient(135deg, var(--lime) 0%, var(--lime-light) 100%);
+      border-radius: var(--r-xl);
+      padding: clamp(28px, 5vw, 48px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-join-strip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .team-join-strip h3 {
+      font-family: var(--font-h);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .team-join-strip p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.88);
+      max-width: 500px;
+      margin: 0 auto 22px;
+      line-height: 1.6;
+    }
+    .team-join-strip .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--lime-dark);
+      font-family: var(--font-h);
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: var(--r-pill);
+      transition: all var(--t-base) var(--ease-out);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+    .team-join-strip .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ LOADING SCREEN ══════════════════════════════════════════ -->
+  <div id="loader" class="loader-wrapper" aria-label="Loading E-Cell NPGC Team" role="status">
+    <div class="loader-inner">
+      <svg class="loader-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <filter id="glow-l">
+            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4cac00"/>
+            <stop offset="100%" stop-color="#6dc920"/>
+          </linearGradient>
+        </defs>
+        <polygon class="hex-outer" points="60,4 112,32 112,88 60,116 8,88 8,32" stroke="url(#hexGrad)" stroke-width="2" fill="none" filter="url(#glow-l)"/>
+        <polygon class="hex-inner" points="60,20 96,40 96,80 60,100 24,80 24,40" stroke="#6dc920" stroke-width="1.2" fill="rgba(76,172,0,0.06)" filter="url(#glow-l)"/>
+        <text x="60" y="72" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="40" fill="#4cac00" filter="url(#glow-l)">E</text>
+        <circle class="orbit-dot" cx="60" cy="4" r="4" fill="#4cac00" filter="url(#glow-l)"/>
+      </svg>
+      <div class="loader-brand">
+        <span class="loader-brand-name">E-CELL</span>
+        <span class="loader-brand-sub">NPGC &middot; LUCKNOW</span>
+      </div>
+      <div class="loader-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="loader-progress-fill" id="loaderProgress"></div>
+      </div>
+      <p class="loader-tagline">Loading the Dream Team...</p>
+      <div class="loader-particles" id="loaderParticles" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- ══ MAIN SITE ═══════════════════════════════════════════════ -->
+  <div id="site" class="site-wrapper">
+
+    <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- ── FIXED NAV ──────────────────────────────────────────── -->
+    <header class="site-header" id="siteHeader">
+      <nav class="nav-container" aria-label="Main navigation">
+
+        <a href="index.html" class="nav-brand" aria-label="E-Cell NPGC Home">
+          <div class="nav-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.1)"/>
+              <text x="20" y="26" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#4cac00">E</text>
+            </svg>
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-main">E-Cell</span>
+            <span class="nav-brand-sub">NPGC &middot; Lucknow</span>
+          </div>
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="nav-links" role="list">
+          <li><a href="index.html#about"       class="nav-link" id="nav-about">About</a></li>
+          <li><a href="index.html#initiatives" class="nav-link" id="nav-initiatives">Initiatives</a></li>
+          <li><a href="team.html"              class="nav-link active" id="nav-team">Team</a></li>
+          <li><a href="index.html#stats"       class="nav-link" id="nav-stats">Impact</a></li>
+          <li><a href="gallery.html"           class="nav-link" id="nav-gallery">Gallery</a></li>
+          <li><a href="blog.html"              class="nav-link" id="nav-blog">Blog</a></li>
+          <li><a href="index.html#contact"     class="nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+
+        <a href="contact.html" class="nav-cta" id="nav-cta">
+          <span>Join Us</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <!-- Hamburger (mobile) -->
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <!-- Mobile Drawer -->
+      <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+        <ul role="list">
+          <li><a href="index.html#about"       class="mobile-link" id="mob-about">About</a></li>
+          <li><a href="index.html#initiatives" class="mobile-link" id="mob-initiatives">Initiatives</a></li>
+          <li><a href="team.html"              class="mobile-link" id="mob-team">Team</a></li>
+          <li><a href="index.html#stats"       class="mobile-link" id="mob-stats">Impact</a></li>
+          <li><a href="gallery.html"           class="mobile-link" id="mob-gallery">Gallery</a></li>
+          <li><a href="blog.html"              class="mobile-link" id="mob-blog">Blog</a></li>
+          <li><a href="index.html#contact"     class="mobile-link" id="mob-contact">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="mobile-cta-btn" id="mob-join">Join the Cell &rarr;</a>
+        <div class="mobile-footer-note">
+          E-Cell NPGC &middot; Lucknow, UP &middot; Est. 2024
+        </div>
+      </div>
+    </header>
+
+    <!-- ── HERO ───────────────────────────────────────────────── -->
+    <section class="subpage-hero" aria-label="Team Introduction">
+      <div class="hero-eyebrow" data-reveal>
+        <div class="eyebrow-dot" aria-hidden="true"></div>
+        <span>The People Behind E-Cell</span>
+      </div>
+      <h1 class="subpage-headline" data-reveal data-reveal-delay="100">
+        Meet the <span class="text-accent">Builders.</span>
+      </h1>
+      <p class="subpage-description" data-reveal data-reveal-delay="200">
+        A passionate team of student leaders, innovators, and hustlers driving Lucknow's fastest-growing campus startup ecosystem — one idea at a time.
+      </p>
+      <div class="session-badge" data-reveal data-reveal-delay="300">Session 2024–2025</div>
+    </section>
+
+    <!-- ── TEAM STATS ─────────────────────────────────────────── -->
+    <div class="team-page-section" style="padding-top: 0;">
+      <div class="team-stats-banner" data-reveal>
+        <div class="team-stat-item">
+          <div class="team-stat-num">9</div>
+          <div class="team-stat-label">Core Members</div>
+        </div>
+        <div class="team-stat-item">
+          <div class="team-stat-num">8</div>
+          <div class="team-stat-label">Departments</div>
+        </div>
+        <div class="team-stat-item">
+          <div class="team-stat-num">2024</div>
+          <div class="team-stat-label">Est. Year</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TEAM GRID SECTION ───────────────────────────────────── -->
+    <section class="team-page-section" aria-label="Full Team Directory" style="padding-top: 0;">
+
+      <!-- Faculty Coordinator Card -->
+      <div class="faculty-wrapper" data-reveal style="margin-bottom: clamp(24px, 4vw, 40px);">
+        <article class="faculty-card" id="team-coordinator" tabindex="0">
+          <div class="faculty-avatar-side">
+            <div class="faculty-avatar">
+              <img src="Assets/Pictures/Dr.SMishra-pfp.jpg" alt="Dr. Shubham Mishra" loading="lazy" />
+              <div class="avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="faculty-role-badge">Faculty Coordinator</div>
+            <div class="team-socials" aria-label="Social links">
+              <a href="https://www.linkedin.com/in/dr-shubham-mishra-52a509161" target="_blank" rel="noopener noreferrer" class="team-social" id="social-sm-li" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </a>
+              <a href="mailto:shubham.mishra261092@gmail.com" class="team-social tp-mail" id="social-sm-mail" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="faculty-info-side">
+            <div class="faculty-primary-info">
+              <h3 class="faculty-name">Dr. Shubham Mishra</h3>
+              <p class="faculty-title">Faculty Coordinator, E-Cell NPGC</p>
+              <p class="faculty-org">Assistant Professor &middot; National Post Graduate College</p>
+              <p class="faculty-meta">Ph.D. in Commerce (Startups &amp; Entrepreneurship), BHU</p>
+            </div>
+            
+            <!-- Collapsible Academic/Experience Details -->
+            <details class="faculty-details">
+              <summary class="faculty-summary">
+                <span>View Academic Profile &amp; Experience</span>
+                <svg class="faculty-summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <div class="faculty-dropdown-content">
+                <div class="faculty-detail-item">
+                  <strong>Teaching Experience:</strong>
+                  <p>Assistant Professor at National PG College (University of Lucknow). Previously served as Assistant Professor at Arya Mahila PG College, Banaras Hindu University (BHU), Varanasi, from August 2017 to November 2022. Over 6–7 years of experience teaching UG and PG students.</p>
+                </div>
+                <div class="faculty-detail-item">
+                  <strong>Education &amp; Credentials:</strong>
+                  <p>Doctor of Philosophy (Ph.D.) in Commerce focusing on research related to Startups and Entrepreneurship from the Faculty of Commerce, Banaras Hindu University (BHU), Varanasi. Completed both Post-Graduation (M.Com) and Graduation (B.Com) from BHU.</p>
+                </div>
+                <div class="faculty-detail-item">
+                  <strong>Research &amp; Startup Projects:</strong>
+                  <p>Actively engaged in minor research projects and initiatives related to entrepreneurship, innovation, and startup development. Published numerous peer-reviewed research papers in reputed UGC Group-II journals.</p>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="team-page-grid" id="teamGrid" role="list">
+
+        <!-- ── 1. PRESIDENT — Parth Srivastav ──────────────────── -->
+        <article class="tp-card" role="listitem" data-reveal id="tp-president" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/ParthS-pfp.jpeg" alt="Parth Srivastav" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">President</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Parth Srivastav</h2>
+            <p class="tp-title">President</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com (H)</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Leadership</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/parth-231594261" target="_blank" rel="noopener noreferrer" class="tp-social" id="tp-social-ps-li" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="mailto:parth.npgc@gmail.com" class="tp-social tp-mail" id="tp-social-ps-mail" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── 2. VICE PRESIDENT — Saumya Yadav ────────────────── -->
+        <article class="tp-card" role="listitem" data-reveal data-reveal-delay="60" id="tp-vp1" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/SaumyaY-pfp.jpeg" alt="Saumya Yadav" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">Vice President</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Saumya Yadav</h2>
+            <p class="tp-title">Vice President</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com (H)</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Leadership</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/saumya-yadav-91a254419" target="_blank" rel="noopener noreferrer" class="tp-social" id="tp-social-sy-li" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── 3. VICE PRESIDENT — Vansh Ahuja ─────────────────── -->
+        <article class="tp-card" role="listitem" data-reveal data-reveal-delay="120" id="tp-vp2" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/Ahuja-pfp.jpeg" alt="Vansh Ahuja" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">Vice President</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Vansh Ahuja</h2>
+            <p class="tp-title">Vice President</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Leadership</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.instagram.com/_hey_vxnsh" target="_blank" rel="noopener noreferrer" class="tp-social tp-instagram" id="tp-social-va-ig" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="mailto:vanshahuja2310@gmail.com" class="tp-social tp-mail" id="tp-social-va-mail" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── 4. INCUBATION — Harshi Kakkar ───────────────────── -->
+        <article class="tp-card" role="listitem" data-reveal data-reveal-delay="60" id="tp-incubation" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/HarshiK-pfp.jpeg" alt="Harshi Kakkar" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">Incubation</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Harshi Kakkar</h2>
+            <p class="tp-title">Incubation Head</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com (H)</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Incubation</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/harshi-kakkar-b65311287" target="_blank" rel="noopener noreferrer" class="tp-social" id="tp-social-hk-li" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="mailto:Harshi14kakkar@Gmail.Com" class="tp-social tp-mail" id="tp-social-hk-mail" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── 5. SOCIAL MEDIA — Lavanya Raj ───────────────────── -->
+        <article class="tp-card" role="listitem" data-reveal data-reveal-delay="120" id="tp-socialmedia" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/LavanyaR-pfp.jpeg" alt="Lavanya Raj" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">Social Media</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Lavanya Raj</h2>
+            <p class="tp-title">Social Media Head</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com (H)</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Social Media</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/lavanya-raj-ba0715309" target="_blank" rel="noopener noreferrer" class="tp-social" id="tp-social-lr-li" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="mailto:lavanyakhatri19@gmail.com" class="tp-social tp-mail" id="tp-social-lr-mail" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── 6. CREATIVITY & DESIGNING — Ekansh Yadav ────────── -->
+        <article class="tp-card" role="listitem" data-reveal data-reveal-delay="180" id="tp-creativity" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/EkanshY-pfp.jpeg" alt="Ekansh Yadav" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">Design</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Ekansh Yadav</h2>
+            <p class="tp-title">Creativity &amp; Designing Head</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com (H)</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Creativity &amp; Design</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/ekansh-yadav-759913369" target="_blank" rel="noopener noreferrer" class="tp-social" id="tp-social-ey-li" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/ekanshforyou" target="_blank" rel="noopener noreferrer" class="tp-social tp-instagram" id="tp-social-ey-ig" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="mailto:ekanshyadav603@gmail.com" class="tp-social tp-mail" id="tp-social-ey-mail" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── 7. TECH & INNOVATION — Vansh Jaiswal ────────────── -->
+        <article class="tp-card" role="listitem" data-reveal data-reveal-delay="60" id="tp-tech" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/VanshJ-pfp.jpg" alt="Vansh Jaiswal" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">Tech Head</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Vansh Jaiswal</h2>
+            <p class="tp-title">Tech &amp; Innovation Head</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com (H)</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Tech &amp; Innovation</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.instagram.com/vanshjais_" target="_blank" rel="noopener noreferrer" class="tp-social tp-instagram" id="tp-social-vj-ig" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="mailto:adiiv.sh8670@gmail.com" class="tp-social tp-mail" id="tp-social-vj-mail" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── 8. MARKETING & BRANDING — Sanskriti Srivastava ──── -->
+        <article class="tp-card" role="listitem" data-reveal data-reveal-delay="120" id="tp-marketing" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/SanskritiS-pfp.jpeg" alt="Sanskriti Srivastava" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">Marketing</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Sanskriti Srivastava</h2>
+            <p class="tp-title">Marketing &amp; Branding Head</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com (H)</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Marketing &amp; Branding</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/sanskritisri07" target="_blank" rel="noopener noreferrer" class="tp-social" id="tp-social-ss-li" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="mailto:sanskriti.work001@gmail.com" class="tp-social tp-mail" id="tp-social-ss-mail" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── 9. PUBLIC RELATIONS — Utkarsh Singh ──────────────── -->
+        <article class="tp-card" role="listitem" data-reveal data-reveal-delay="180" id="tp-pr" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/UtkarshS-pfp.jpeg" alt="Utkarsh Singh" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">PR</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Utkarsh Singh</h2>
+            <p class="tp-title">Public Relations Head</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com (H)</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Public Relations</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/utkarsh-singh-234a52389" target="_blank" rel="noopener noreferrer" class="tp-social" id="tp-social-us-li" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/singh_utkarsh2215" target="_blank" rel="noopener noreferrer" class="tp-social tp-instagram" id="tp-social-us-ig" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="mailto:utkarshsingh90185@gmail.com" class="tp-social tp-mail" id="tp-social-us-mail" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ── 10. EVENT MANAGEMENT — Devansh Saxena ─────────────── -->
+        <article class="tp-card" role="listitem" data-reveal data-reveal-delay="60" id="tp-events" tabindex="0">
+          <div class="tp-avatar-wrap">
+            <div class="tp-avatar">
+              <img src="Assets/Pictures/DevanshS-pfp.jpeg" alt="Devansh Saxena" loading="lazy" />
+              <div class="tp-avatar-glow" aria-hidden="true"></div>
+            </div>
+            <div class="tp-role-badge">Events</div>
+          </div>
+          <div class="tp-info">
+            <h2 class="tp-name">Devansh Saxena</h2>
+            <p class="tp-title">Event Management Head</p>
+            <p class="tp-org">E-Cell NPGC &middot; B.Com (H)</p>
+          </div>
+          <div class="tp-divider"></div>
+          <span class="tp-dept-chip">Event Management</span>
+          <div class="tp-socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/devansh-saxena-219a94240" target="_blank" rel="noopener noreferrer" class="tp-social" id="tp-social-ds-li" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/_.dev._001_" target="_blank" rel="noopener noreferrer" class="tp-social tp-instagram" id="tp-social-ds-ig" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="mailto:saxenadevansh47@gmail.com" class="tp-social tp-mail" id="tp-social-ds-mail" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div><!-- /team-page-grid -->
+
+      <!-- Join CTA -->
+      <div class="team-join-strip" data-reveal>
+        <h3>Want to Join the Team?</h3>
+        <p>We are always on the lookout for passionate students who want to build, create, and lead. Applications for the 2025–2026 session are open.</p>
+        <a href="contact.html" class="btn-white" id="team-join-cta">
+          Connect With Us
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer class="site-footer" id="contact" aria-label="Site footer">
+      <div class="footer-container">
+        <div class="footer-col footer-brand-col">
+          <div class="footer-logo">
+            <svg viewBox="0 0 40 40" fill="none" width="34" height="34" aria-hidden="true">
+              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.08)"/>
+              <text x="20" y="26" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#4cac00">E</text>
+            </svg>
+            <span>UDYAM E-Cell</span>
+          </div>
+          <p class="footer-bio">UDYAM E-Cell of National Post Graduate College, Lucknow. Inspiring founders, building ecosystems, and driving the startup revolution from within campus walls.</p>
+          <div class="footer-socials" aria-label="Social media links">
+            <a href="http://www.instagram.com/udyam.ecell" target="_blank" rel="noopener noreferrer" class="f-social" id="footer-instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://in.linkedin.com/in/udyam-entrepreneurship-development-cell-npgc-lucknow-818b46377" target="_blank" rel="noopener noreferrer" class="f-social" id="footer-linkedin" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://whatsapp.com/channel/0029VbC8N3zFsn0aFT3yh838" target="_blank" rel="noopener noreferrer" class="f-social" id="footer-whatsapp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.5-5.729-1.455L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.905 1.481 5.482 0 9.95-4.466 9.954-9.948 0-2.656-1.03-5.153-2.902-7.027c-1.872-1.874-4.364-2.907-7.02-2.908-5.487 0-9.957 4.468-9.96 9.95-.001 1.776.475 3.51 1.376 5.02L1.44 21.03l5.207-1.876zm11.964-6.425c-.29-.145-1.72-.848-1.986-.944-.266-.096-.46-.145-.654.145-.193.29-.75.944-.919 1.138-.17.193-.338.217-.628.072-2.99-1.492-4.842-4.02-5.59-5.304-.174-.298-.018-.46.132-.609.135-.134.29-.338.435-.507.145-.17.193-.29.29-.483.097-.193.048-.361-.024-.507-.072-.145-.654-1.577-.896-2.158-.236-.569-.475-.491-.654-.5h-.56c-.193 0-.507.072-.773.361-.266.29-1.014.992-1.014 2.417 0 1.425 1.038 2.802 1.184 2.995.145.193 2.043 3.12 4.949 4.378.69.299 1.23.478 1.649.61.693.22 1.325.19 1.826.115.557-.084 1.72-.702 1.962-1.38.242-.678.242-1.258.17-1.38-.072-.122-.266-.193-.556-.339z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-links-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html#about"       class="footer-link" id="flink-about">About E-Cell</a></li>
+            <li><a href="index.html#initiatives" class="footer-link" id="flink-initiatives">Initiatives</a></li>
+            <li><a href="team.html"              class="footer-link" id="flink-team">Our Team</a></li>
+            <li><a href="index.html#stats"       class="footer-link" id="flink-impact">Impact</a></li>
+            <li><a href="gallery.html"           class="footer-link" id="flink-gallery">Gallery</a></li>
+            <li><a href="blog.html"              class="footer-link" id="flink-blog">Blog</a></li>
+            <li><a href="contact.html"           class="footer-link" id="flink-join">Join Us</a></li>
+            <li><a href="contact.html"     class="footer-link" id="flink-contact">Connect With Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-newsletter-col">
+          <h4 class="footer-col-title">Get in Touch</h4>
+          <div class="footer-contact-info">
+            <a href="tel:0522-402-1304" class="footer-contact-link" id="footer-phone">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.6" fill="none"/>
+              </svg>
+              0522 402 1304
+            </a>
+            <a href="mailto:ecellnpgc@gmail.com" class="footer-contact-link" id="footer-email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M2 8l10 6 10-6" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+              ecellnpgc@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 E-Cell NPGC &middot; All Rights Reserved &middot; Lucknow, Uttar Pradesh</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-bottom-link" id="fbl-privacy">Privacy</a>
+          <a href="#" class="footer-bottom-link" id="fbl-terms">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Mobile sticky CTA bar -->
+    <div class="mobile-sticky-cta" id="mobileStickyBar" aria-hidden="true">
+      <a href="contact.html" class="mobile-sticky-btn" id="mobile-sticky-apply">Connect With Us</a>
+      <a href="tel:05224021304" class="mobile-sticky-btn mobile-sticky-ghost" id="mobile-sticky-call">Call Us</a>
+    </div>
+
+  </div><!-- /site-wrapper -->
+
+  <script src="app.js"></script>
+</body>
+</html>
