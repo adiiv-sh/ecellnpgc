@@ -103,7 +103,6 @@ const isTouch  = () => window.matchMedia('(pointer: coarse)').matches;
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, pts = [];
-  let mouse = { x: null, y: null };
 
   // Fewer particles on mobile to avoid jank
   const COUNT = isMobile() ? 36 : 65;
@@ -123,12 +122,6 @@ const isTouch  = () => window.matchMedia('(pointer: coarse)').matches;
     update() {
       this.x += this.vx; this.y += this.vy; this.life++;
       if (this.y < -6 || this.life > this.max) this.reset();
-      // Only repel on non-touch devices
-      if (mouse.x !== null) {
-        const dx = this.x - mouse.x, dy = this.y - mouse.y;
-        const d  = Math.hypot(dx, dy);
-        if (d < 80) { const f = (80 - d) / 80; this.x += dx * f * 0.011; this.y += dy * f * 0.011; }
-      }
     }
     draw() {
       ctx.beginPath();
@@ -196,35 +189,13 @@ const isTouch  = () => window.matchMedia('(pointer: coarse)').matches;
   });
 
   window.addEventListener('resize', resize, { passive: true });
-  if (!isTouch()) {
-    window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
-    window.addEventListener('mouseleave', () => { mouse.x = mouse.y = null; });
-  }
-
   resize();
   pts = Array.from({ length: COUNT }, () => new P());
   animate();
 })();
 
 /* ══════════════════════════════════════════════════════════════
-   3. CURSOR GLOW (desktop only)
-   ══════════════════════════════════════════════════════════════ */
-(function initGlow() {
-  const glow = $('#cursorGlow');
-  if (!glow || isTouch()) return;
-  let tx = 0, ty = 0, cx = 0, cy = 0;
-  document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
-  (function tick() {
-    cx = lerp(cx, tx, 0.07);
-    cy = lerp(cy, ty, 0.07);
-    // Use translate3d — GPU-composited, zero layout
-    glow.style.transform = `translate3d(${cx}px,${cy}px,0) translate(-50%,-50%)`;
-    requestAnimationFrame(tick);
-  })();
-})();
-
-/* ══════════════════════════════════════════════════════════════
-   4. NAVIGATION
+  3. NAVIGATION
    ══════════════════════════════════════════════════════════════ */
 (function initNav() {
   const header = $('#siteHeader');
@@ -334,42 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ══════════════════════════════════════════════════════════════
-   6. ANIMATED COUNTERS
-   ══════════════════════════════════════════════════════════════ */
-(function initCounters() {
-  const items = $$('.stat-item[data-counter]');
-  if (!items.length) return;
-  let fired = false;
-  const easeOut = t => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-
-  function runCounter(el) {
-    const end = parseInt(el.dataset.counter, 10);
-    const sfx = el.dataset.suffix || '';
-    const num = el.querySelector('.stat-number');
-    if (!num) return;
-    const dur = 1500, start = performance.now();
-    (function step(now) {
-      const p = clamp((now - start) / dur, 0, 1);
-      // tabular-nums prevents layout shift on number change
-      num.textContent = Math.round(easeOut(p) * end) + sfx;
-      if (p < 1) requestAnimationFrame(step);
-    })(start);
-  }
-
-  const obs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting && !fired) {
-      fired = true;
-      items.forEach(runCounter);
-      obs.disconnect();
-    }
-  }, { threshold: 0.25 });
-
-  const bar = $('#stats');
-  if (bar) obs.observe(bar);
-})();
-
-/* ══════════════════════════════════════════════════════════════
-   7. BACK TO TOP
+   6. BACK TO TOP
    ══════════════════════════════════════════════════════════════ */
 (function initBTT() {
   const btn = $('#backToTop');
@@ -408,24 +344,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 /* ══════════════════════════════════════════════════════════════
-   10. CARD TILT (desktop / non-touch only)
-   ══════════════════════════════════════════════════════════════ */
-(function initTilt() {
-  if (isTouch()) return;
-  const MAX = 5;
-  $$('.initiative-card, .team-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r  = card.getBoundingClientRect();
-      const dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
-      const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
-      // Use translate3d to keep on GPU layer
-      card.style.transform = `translateY(-4px) perspective(700px) rotateX(${clamp(-dy*MAX,-MAX,MAX)}deg) rotateY(${clamp(dx*MAX,-MAX,MAX)}deg) translateZ(0)`;
-    });
-    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-  });
-})();
-
-/* ══════════════════════════════════════════════════════════════
    11. SMOOTH ANCHOR SCROLL
    ══════════════════════════════════════════════════════════════ */
 document.addEventListener('click', e => {
@@ -445,53 +363,37 @@ document.addEventListener('click', e => {
   }
 });
 
-/* ══════════════════════════════════════════════════════════════
-   12. HERO CHIP ENTRANCE
-   ══════════════════════════════════════════════════════════════ */
-$$('.hero-chip, .mobile-strip-chip').forEach((chip, i) => {
-  // Set initial hidden state via style (not CSS class — avoids FOUC)
-  chip.style.cssText += 'opacity:0;transform:scale(0.84) translateY(8px);transition:none;';
-  setTimeout(() => {
-    chip.style.transition = 'opacity 0.42s cubic-bezier(0.34,1.56,0.64,1), transform 0.42s cubic-bezier(0.34,1.56,0.64,1)';
-    chip.style.opacity    = '1';
-    chip.style.transform  = '';
-  }, 1050 + i * 170);
-});
+(function initTeamDirectory() {
+  const grid = $('#teamGrid');
+  const sessionSelect = $('#teamSession');
+  if (!grid || !sessionSelect) return;
 
-/* ══════════════════════════════════════════════════════════════
-   13. TYPEWRITER
-   ══════════════════════════════════════════════════════════════ */
-(function initTypewriter() {
-  let phrases = ['Startups.', 'Innovation.', 'Founders.', 'Lucknow.'];
-  const path = window.location.pathname.toLowerCase();
-  if (path.includes('blog') || path.includes('aktu-visit') || path.includes('cm-yuva') || path.includes('saarang_25') || path.includes('anual_rport_25') || path.includes('hunar_launchpad_expo')) {
-    phrases = ['Insights.', 'Stories.', 'Updates.', 'Articles.'];
-  } else if (path.includes('gallery')) {
-    phrases = ['Moments.', 'Events.', 'Memories.', 'Exhibits.'];
-  } else if (path.includes('contact')) {
-    phrases = ['Contact.', 'Apply.', 'Connect.', 'Partner.'];
-  }
-  const el = $('#typewriterTarget');
-  if (!el) return;
-  let pi = 0, ci = 0, del = false;
+  const techCard = $('#tp-tech', grid);
+  const creativityCard = $('#tp-creativity', grid);
+  if (techCard && creativityCard) grid.insertBefore(techCard, creativityCard);
 
-  function type() {
-    const phrase = phrases[pi];
-    if (!del) {
-      el.textContent = phrase.slice(0, ++ci);
-      if (ci === phrase.length) { del = true; setTimeout(type, 1900); return; }
-    } else {
-      el.textContent = phrase.slice(0, --ci);
-      if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; setTimeout(type, 350); return; }
-    }
-    setTimeout(type, del ? 40 : 75);
+  const stats = $('.team-stats-banner');
+  const joinStrip = $('.team-join-strip');
+  const emptyState = $('#teamSessionEmpty');
+  const sessionStatus = $('#teamSessionStatus');
+  const sessionStatusLabel = $('.session-status-label', sessionStatus);
+
+  function showSession() {
+    const hasRoster = sessionSelect.value === '2024-2025';
+    grid.hidden = !hasRoster;
+    if (stats) stats.hidden = !hasRoster;
+    if (joinStrip) joinStrip.hidden = !hasRoster;
+    if (emptyState) emptyState.hidden = hasRoster;
+    if (sessionStatus) sessionStatus.classList.toggle('is-unavailable', !hasRoster);
+    if (sessionStatusLabel) sessionStatusLabel.textContent = hasRoster ? 'Directory available' : 'Directory not available';
   }
 
-  setTimeout(type, 1300);
+  sessionSelect.addEventListener('change', showSession);
+  showSession();
 })();
 
 /* ══════════════════════════════════════════════════════════════
-   14. TOUCH RIPPLE on initiative cards
+   9. TOUCH RIPPLE on initiative cards
    ══════════════════════════════════════════════════════════════ */
 (function initRipple() {
   if (!isTouch()) return;
