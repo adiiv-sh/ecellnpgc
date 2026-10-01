@@ -126,16 +126,16 @@ const isTouch  = () => window.matchMedia('(pointer: coarse)').matches;
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(76,172,0,${this.a})`;
+      ctx.fillStyle = `rgba(139,197,61,${this.a})`;
       ctx.fill();
     }
   }
 
-  let lastW = window.innerWidth;
+  let lastW = 0, lastH = 0;
   function resize() {
-    if (window.innerWidth === lastW && canvas.width > 0) return;
+    if (window.innerWidth === lastW && window.innerHeight === lastH) return;
     lastW = W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
+    lastH = H = canvas.height = window.innerHeight;
   }
 
   let animId;
@@ -174,7 +174,7 @@ const isTouch  = () => window.matchMedia('(pointer: coarse)').matches;
           ctx.beginPath();
           ctx.moveTo(pts[i].x, pts[i].y);
           ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle = `rgba(76,172,0,${(1 - d / DIST) * 0.08})`;
+          ctx.strokeStyle = `rgba(139,197,61,${(1 - d / DIST) * 0.08})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
@@ -221,6 +221,7 @@ const isTouch  = () => window.matchMedia('(pointer: coarse)').matches;
     menu.classList.add('open');
     ham.classList.add('open');
     ham.setAttribute('aria-expanded', 'true');
+    ham.setAttribute('aria-label', 'Close navigation menu');
     menu.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
@@ -228,6 +229,7 @@ const isTouch  = () => window.matchMedia('(pointer: coarse)').matches;
     menu.classList.remove('open');
     ham.classList.remove('open');
     ham.setAttribute('aria-expanded', 'false');
+    ham.setAttribute('aria-label', 'Open navigation menu');
     menu.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
@@ -414,7 +416,7 @@ document.addEventListener('click', e => {
         top:  (touch.clientY - r.top)  + 'px',
         width: '0', height: '0',
         borderRadius: '50%',
-        background: 'rgba(76,172,0,0.1)',
+        background: 'rgba(139,197,61,0.1)',
         transform: 'translate(-50%,-50%) scale(0)',
         animation: 'ripple-out 0.48s ease-out forwards',
         pointerEvents: 'none', zIndex: '0',

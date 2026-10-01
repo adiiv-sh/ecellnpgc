@@ -9,7 +9,7 @@
   <meta property="og:title" content="E-Cell NPGC | Empowering Startups" />
   <meta property="og:description" content="Student entrepreneurship workshops, pitch events, and mentorship at National Post Graduate College, Lucknow." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#f3f5f0" />
+  <meta name="theme-color" content="#E2F0CC" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
@@ -26,25 +26,7 @@
   <!-- ══ LOADING SCREEN ══════════════════════════════════════════ -->
   <div id="loader" class="loader-wrapper" aria-label="Loading E-Cell NPGC" role="status">
     <div class="loader-inner">
-      <svg class="loader-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <filter id="glow-l">
-            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#4cac00"/>
-            <stop offset="100%" stop-color="#6dc920"/>
-          </linearGradient>
-        </defs>
-        <polygon class="hex-outer" points="60,4 112,32 112,88 60,116 8,88 8,32"
-          stroke="url(#hexGrad)" stroke-width="2" fill="none" filter="url(#glow-l)"/>
-        <polygon class="hex-inner" points="60,20 96,40 96,80 60,100 24,80 24,40"
-          stroke="#6dc920" stroke-width="1.2" fill="rgba(76,172,0,0.06)" filter="url(#glow-l)"/>
-        <text x="60" y="72" text-anchor="middle" font-family="Space Grotesk,sans-serif"
-          font-weight="700" font-size="40" fill="#4cac00" filter="url(#glow-l)">E</text>
-        <circle class="orbit-dot" cx="60" cy="4" r="4" fill="#4cac00" filter="url(#glow-l)"/>
-      </svg>
+      <img class="loader-mark" src="Assets/Logo%20%26%20Fevicon/udyamW.svg" alt="UDYAM E-Cell NPGC" />
 
       <div class="loader-brand">
         <span class="loader-brand-name">E-CELL</span>
@@ -70,14 +52,7 @@
       <nav class="nav-container" aria-label="Main navigation">
 
         <a href="#hero" class="nav-brand" aria-label="E-Cell NPGC Home">
-          <div class="nav-logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40" fill="none">
-              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11"
-                stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.1)"/>
-              <text x="20" y="26" text-anchor="middle"
-                font-family="Space Grotesk" font-weight="700" font-size="15" fill="#4cac00">E</text>
-            </svg>
-          </div>
+          <div class="nav-logo-mark" aria-hidden="true"></div>
           <div class="nav-brand-text">
             <span class="nav-brand-main">E-Cell</span>
             <span class="nav-brand-sub">NPGC &middot; Lucknow</span>
@@ -91,7 +66,7 @@
           <li><a href="team.html"    class="nav-link" id="nav-team">Team</a></li>
           <li><a href="#stats"       class="nav-link" id="nav-stats">Impact</a></li>
           <li><a href="gallery.html" class="nav-link" id="nav-gallery">Gallery</a></li>
-          <li><a href="blog.html"    class="nav-link" id="nav-blog">Blog</a></li>
+          <li><a href="blog/blog.html"    class="nav-link" id="nav-blog">Blog</a></li>
           <li><a href="#contact"     class="nav-link" id="nav-contact">Contact</a></li>
         </ul>
 
@@ -104,7 +79,7 @@
 
         <!-- Hamburger (mobile) -->
         <button class="nav-hamburger" id="navHamburger"
-          aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+          aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
           <span></span><span></span><span></span>
         </button>
       </nav>
@@ -117,7 +92,7 @@
           <li><a href="team.html"    class="mobile-link" id="mob-team">Team</a></li>
           <li><a href="#stats"       class="mobile-link" id="mob-stats">Impact</a></li>
           <li><a href="gallery.html" class="mobile-link" id="mob-gallery">Gallery</a></li>
-          <li><a href="blog.html"    class="mobile-link" id="mob-blog">Blog</a></li>
+          <li><a href="blog/blog.html"    class="mobile-link" id="mob-blog">Blog</a></li>
           <li><a href="#contact"     class="mobile-link" id="mob-contact">Contact</a></li>
         </ul>
         <a href="#join" class="mobile-cta-btn" id="mob-join">Join the Cell &rarr;</a>
@@ -180,8 +155,8 @@
           <svg viewBox="0 0 200 200" fill="none" class="hero-core-svg">
             <defs>
               <radialGradient id="coreGradL" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#4cac00" stop-opacity="0.18"/>
-                <stop offset="100%" stop-color="#4cac00" stop-opacity="0"/>
+                <stop offset="0%" stop-color="#8BC53D" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="#8BC53D" stop-opacity="0"/>
               </radialGradient>
               <filter id="glowL">
                 <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -190,17 +165,17 @@
             </defs>
             <circle cx="100" cy="100" r="80" fill="url(#coreGradL)"/>
             <polygon points="100,20 172,60 172,140 100,180 28,140 28,60"
-              stroke="#4cac00" stroke-width="1" fill="none" opacity="0.35" filter="url(#glowL)"/>
+              stroke="#8BC53D" stroke-width="1" fill="none" opacity="0.35" filter="url(#glowL)"/>
             <polygon points="100,45 152,72 152,128 100,155 48,128 48,72"
-              stroke="#4cac00" stroke-width="1.5" fill="none" opacity="0.5" filter="url(#glowL)"/>
+              stroke="#8BC53D" stroke-width="1.5" fill="none" opacity="0.5" filter="url(#glowL)"/>
             <text x="100" y="115" text-anchor="middle" font-family="Space Grotesk"
-              font-weight="800" font-size="52" fill="#4cac00" opacity="0.9" filter="url(#glowL)">E</text>
-            <circle cx="100" cy="20" r="5" fill="#4cac00"/>
-            <circle cx="172" cy="60" r="4" fill="#4cac00" opacity="0.6"/>
-            <circle cx="172" cy="140" r="4" fill="#4cac00" opacity="0.6"/>
-            <circle cx="100" cy="180" r="5" fill="#4cac00"/>
-            <circle cx="28" cy="140" r="4" fill="#4cac00" opacity="0.6"/>
-            <circle cx="28" cy="60" r="4" fill="#4cac00" opacity="0.6"/>
+              font-weight="800" font-size="52" fill="#8BC53D" opacity="0.9" filter="url(#glowL)">E</text>
+            <circle cx="100" cy="20" r="5" fill="#8BC53D"/>
+            <circle cx="172" cy="60" r="4" fill="#8BC53D" opacity="0.6"/>
+            <circle cx="172" cy="140" r="4" fill="#8BC53D" opacity="0.6"/>
+            <circle cx="100" cy="180" r="5" fill="#8BC53D"/>
+            <circle cx="28" cy="140" r="4" fill="#8BC53D" opacity="0.6"/>
+            <circle cx="28" cy="60" r="4" fill="#8BC53D" opacity="0.6"/>
           </svg>
           <div class="hero-core-label">Est. 2024</div>
         </div>
@@ -255,21 +230,21 @@
             <div class="about-badges">
               <div class="about-badge" id="badge-nonprofit">
                 <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M8 1l2 4.5h4.5l-3.6 2.7 1.4 4.3L8 10l-4.3 2.5 1.4-4.3L1.5 5.5H6L8 1z" stroke="#4cac00" stroke-width="1.2" fill="none"/>
+                  <path d="M8 1l2 4.5h4.5l-3.6 2.7 1.4 4.3L8 10l-4.3 2.5 1.4-4.3L1.5 5.5H6L8 1z" stroke="#8BC53D" stroke-width="1.2" fill="none"/>
                 </svg>
                 <span>Non-Profit &middot; Student-Led</span>
               </div>
               <div class="about-badge" id="badge-lucknow">
                 <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5z" stroke="#4cac00" stroke-width="1.2" fill="none"/>
-                  <circle cx="8" cy="6" r="1.5" stroke="#4cac00" stroke-width="1.2"/>
+                  <path d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5z" stroke="#8BC53D" stroke-width="1.2" fill="none"/>
+                  <circle cx="8" cy="6" r="1.5" stroke="#8BC53D" stroke-width="1.2"/>
                 </svg>
                 <span>Lucknow, UP</span>
               </div>
               <div class="about-badge" id="badge-since">
                 <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <circle cx="8" cy="8" r="6" stroke="#4cac00" stroke-width="1.2"/>
-                  <path d="M8 4v4l3 2" stroke="#4cac00" stroke-width="1.2" stroke-linecap="round"/>
+                  <circle cx="8" cy="8" r="6" stroke="#8BC53D" stroke-width="1.2"/>
+                  <path d="M8 4v4l3 2" stroke="#8BC53D" stroke-width="1.2" stroke-linecap="round"/>
                 </svg>
                 <span>Inspiring Since 2020</span>
               </div>
@@ -287,24 +262,24 @@
                 <div class="orbit orbit-1">
                   <div class="orbit-planet planet-1">
                     <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                      <circle cx="10" cy="8" r="3" stroke="#4cac00" stroke-width="1.4"/>
-                      <path d="M4 18c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#4cac00" stroke-width="1.4" stroke-linecap="round"/>
+                      <circle cx="10" cy="8" r="3" stroke="#8BC53D" stroke-width="1.4"/>
+                      <path d="M4 18c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#8BC53D" stroke-width="1.4" stroke-linecap="round"/>
                     </svg>
                   </div>
                 </div>
                 <div class="orbit orbit-2">
                   <div class="orbit-planet planet-2">
                     <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                      <path d="M10 2l2 5h5l-4 3 1.5 5L10 12l-4.5 3L7 10 3 7h5L10 2z" stroke="#4cac00" stroke-width="1.4" fill="none"/>
+                      <path d="M10 2l2 5h5l-4 3 1.5 5L10 12l-4.5 3L7 10 3 7h5L10 2z" stroke="#8BC53D" stroke-width="1.4" fill="none"/>
                     </svg>
                   </div>
                 </div>
                 <div class="orbit orbit-3">
                   <div class="orbit-planet planet-3">
                     <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                      <rect x="3" y="5" width="14" height="10" rx="2" stroke="#4cac00" stroke-width="1.4"/>
-                      <path d="M3 9h14" stroke="#4cac00" stroke-width="1.4"/>
-                      <circle cx="7" cy="13" r="1" fill="#4cac00"/>
+                      <rect x="3" y="5" width="14" height="10" rx="2" stroke="#8BC53D" stroke-width="1.4"/>
+                      <path d="M3 9h14" stroke="#8BC53D" stroke-width="1.4"/>
+                      <circle cx="7" cy="13" r="1" fill="#8BC53D"/>
                     </svg>
                   </div>
                 </div>
@@ -353,8 +328,8 @@
             <div class="card-icon-wrap" aria-hidden="true">
               <div class="card-icon-bg"></div>
               <svg class="card-icon-svg" viewBox="0 0 48 48" fill="none">
-                <path d="M24 6L42 36H6L24 6z" stroke="#4cac00" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M24 18v10M24 32v2" stroke="#4cac00" stroke-width="2" stroke-linecap="round"/>
+                <path d="M24 6L42 36H6L24 6z" stroke="#8BC53D" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M24 18v10M24 32v2" stroke="#8BC53D" stroke-width="2" stroke-linecap="round"/>
               </svg>
             </div>
             <div class="card-body">
@@ -373,9 +348,9 @@
             <div class="card-icon-wrap" aria-hidden="true">
               <div class="card-icon-bg"></div>
               <svg class="card-icon-svg" viewBox="0 0 48 48" fill="none">
-                <rect x="8" y="8" width="32" height="24" rx="3" stroke="#4cac00" stroke-width="2"/>
-                <path d="M16 40h16M24 32v8" stroke="#4cac00" stroke-width="2" stroke-linecap="round"/>
-                <path d="M18 22l4-6 4 4 4-8" stroke="#4cac00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="8" y="8" width="32" height="24" rx="3" stroke="#8BC53D" stroke-width="2"/>
+                <path d="M16 40h16M24 32v8" stroke="#8BC53D" stroke-width="2" stroke-linecap="round"/>
+                <path d="M18 22l4-6 4 4 4-8" stroke="#8BC53D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <div class="card-body">
@@ -394,10 +369,10 @@
             <div class="card-icon-wrap" aria-hidden="true">
               <div class="card-icon-bg"></div>
               <svg class="card-icon-svg" viewBox="0 0 48 48" fill="none">
-                <circle cx="18" cy="18" r="7" stroke="#4cac00" stroke-width="2"/>
-                <circle cx="34" cy="14" r="5" stroke="#4cac00" stroke-width="2"/>
-                <path d="M6 40c0-6.6 5.4-12 12-12h4c6.6 0 12 5.4 12 12" stroke="#4cac00" stroke-width="2" stroke-linecap="round"/>
-                <path d="M34 26c3.3 0 6 2.7 6 6v4" stroke="#4cac00" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="18" cy="18" r="7" stroke="#8BC53D" stroke-width="2"/>
+                <circle cx="34" cy="14" r="5" stroke="#8BC53D" stroke-width="2"/>
+                <path d="M6 40c0-6.6 5.4-12 12-12h4c6.6 0 12 5.4 12 12" stroke="#8BC53D" stroke-width="2" stroke-linecap="round"/>
+                <path d="M34 26c3.3 0 6 2.7 6 6v4" stroke="#8BC53D" stroke-width="2" stroke-linecap="round"/>
               </svg>
             </div>
             <div class="card-body">
@@ -416,9 +391,9 @@
             <div class="card-icon-wrap" aria-hidden="true">
               <div class="card-icon-bg"></div>
               <svg class="card-icon-svg" viewBox="0 0 48 48" fill="none">
-                <path d="M24 8v6M8 24h6m20 0h6M24 34v6" stroke="#4cac00" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="24" cy="24" r="10" stroke="#4cac00" stroke-width="2"/>
-                <path d="M20 24l3 3 5-5" stroke="#4cac00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M24 8v6M8 24h6m20 0h6M24 34v6" stroke="#8BC53D" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="10" stroke="#8BC53D" stroke-width="2"/>
+                <path d="M20 24l3 3 5-5" stroke="#8BC53D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <div class="card-body">
@@ -447,7 +422,7 @@
           <h2 class="offer-headline">Value &amp; <span class="text-accent">Opportunities</span></h2>
           <p class="offer-sub">Be part of a thriving community of innovators and entrepreneurs.</p>
         </div>
-        
+
         <div class="offer-grid">
           <div class="offer-column" data-reveal>
             <h3>For Student Entrepreneurs</h3>
@@ -474,7 +449,7 @@
               </li>
             </ul>
           </div>
-          
+
           <div class="offer-column" data-reveal data-reveal-delay="100">
             <h3>What E-Cell Offers</h3>
             <ul class="offer-list">
@@ -514,7 +489,7 @@
           <h2 class="values-headline">What <span class="text-accent">Drives Us</span></h2>
           <p class="values-sub">Our values guide every decision we make and shape the culture of UDYAM.</p>
         </div>
-        
+
         <div class="values-grid">
           <div class="value-card" data-reveal data-reveal-delay="0">
             <div class="value-icon" aria-hidden="true">
@@ -598,7 +573,7 @@
                 <p class="faculty-org">Assistant Professor &middot; National Post Graduate College</p>
                 <p class="faculty-meta">Ph.D. in Commerce (Startups &amp; Entrepreneurship), BHU</p>
               </div>
-              
+
               <!-- Collapsible Academic/Experience Details -->
               <details class="faculty-details">
                 <summary class="faculty-summary">
@@ -727,10 +702,10 @@
           <h2 class="journey-headline">Milestones &amp; <span class="text-accent">Achievements</span></h2>
           <p class="journey-sub">From humble beginnings to becoming a thriving entrepreneurial hub.</p>
         </div>
-        
+
         <div class="timeline" data-reveal>
           <div class="timeline-line"></div>
-          
+
           <div class="timeline-item" data-reveal>
             <div class="timeline-dot"></div>
             <div class="timeline-time">2024</div>
@@ -739,7 +714,7 @@
               <p>National Post Graduate College established UDYAM E-Cell to support student entrepreneurship.</p>
             </div>
           </div>
-          
+
           <div class="timeline-item" data-reveal>
             <div class="timeline-dot"></div>
             <div class="timeline-time">2025</div>
@@ -775,7 +750,7 @@
               <p>UDYAM E-Cell hosted the Hunar Launchpad briefing program, introducing a structured 6–7 month internship program for second-year students, attended by 250+ students.</p>
             </div>
           </div>
-          
+
           <div class="timeline-item" data-reveal>
             <div class="timeline-dot"></div>
             <div class="timeline-time">2026</div>
@@ -800,7 +775,7 @@
         </div>
 
         <div class="startups-grid">
-          
+
           <div class="startup-card" data-reveal>
             <div class="startup-logo-wrap" aria-hidden="true">NI</div>
             <div class="startup-body">
@@ -908,7 +883,7 @@
             <li><a href="team.html"    class="footer-link" id="flink-team">Our Team</a></li>
             <li><a href="#stats"       class="footer-link" id="flink-impact">Impact</a></li>
             <li><a href="gallery.html" class="footer-link" id="flink-gallery">Gallery</a></li>
-            <li><a href="blog.html"    class="footer-link" id="flink-blog">Blog</a></li>
+            <li><a href="blog/blog.html"    class="footer-link" id="flink-blog">Blog</a></li>
             <li><a href="#join"        class="footer-link" id="flink-join">Join Us</a></li>
              <li><a href="contact.html"     class="footer-link" id="flink-contact">Connect With Us</a></li>
           </ul>
@@ -952,8 +927,9 @@
           <div class="footer-map-container" id="footer-map-container">
             <h4 class="footer-map-title">How to Find Us?</h4>
             <div class="footer-map-embed">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.472177652018!2d80.94090287519826!3d26.856735476680644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd0a819131cb%3A0x11553d04f3a32d9c!2sNational%20Post%20Graduate%20College!5e0!3m2!1sen!2sin!4v1782202791259!5m2!1sen!2sin" width="100%" height="250" style="border:none;border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Google Maps showing E-Cell location at Rana Pratap Marg, Lucknow"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.472177652018!2d80.94090287519826!3d26.856735476680644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd0a819131cb%3A0x11553d04f3a32d9c!2sNational%20Post%20Graduate%20College!5e0!3m2!1sen!2sin!4v1782202791259!5m2!1sen!2sin" width="100%" height="250" style="border:none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing National Post Graduate College, Rana Pratap Marg, Lucknow"></iframe>
             </div>
+            <a class="footer-map-link" href="https://maps.google.com/?q=National+Post+Graduate+College+Rana+Pratap+Marg+Lucknow" target="_blank" rel="noopener noreferrer">Open directions in Google Maps</a>
           </div>
 
       </div><!-- /footer-container -->

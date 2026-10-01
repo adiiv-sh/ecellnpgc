@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Contact &amp; Apply | E-Cell NPGC Lucknow</title>
   <meta name="description" content="Get in touch with the Entrepreneurship Cell of National PG College, Lucknow. Submit inquiries for incubation, recruitment, partnerships, or general queries." />
-  <meta name="theme-color" content="#f3f5f0" />
+  <meta name="theme-color" content="#E2F0CC" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
@@ -16,7 +16,7 @@
   <link rel="icon" type="image/svg+xml" sizes="any" href="Assets/Logo%20%26%20Fevicon/fevicon%201.svg" media="(prefers-color-scheme: light)" />
   <link rel="icon" type="image/svg+xml" sizes="any" href="Assets/Logo%20%26%20Fevicon/fevicon%202.svg" media="(prefers-color-scheme: dark)" />
   <link rel="stylesheet" href="style.css" />
-  
+
   <!-- EmailJS SDK Integration -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
@@ -39,12 +39,7 @@
   <!-- ══ LOADING SCREEN ══════════════════════════════════════════ -->
   <div id="loader" class="loader-wrapper" aria-label="Loading E-Cell NPGC Form" role="status">
     <div class="loader-inner">
-      <svg class="loader-mark" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <polygon class="hex-outer" points="60,4 112,32 112,88 60,116 8,88 8,32" stroke="url(#hexGrad)" stroke-width="2" fill="none" filter="url(#glow-l)"/>
-        <polygon class="hex-inner" points="60,20 96,40 96,80 60,100 24,80 24,40" stroke="#6dc920" stroke-width="1.2" fill="rgba(76,172,0,0.06)" filter="url(#glow-l)"/>
-        <text x="60" y="72" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="40" fill="#4cac00" filter="url(#glow-l)">E</text>
-        <circle class="orbit-dot" cx="60" cy="4" r="4" fill="#4cac00" filter="url(#glow-l)"/>
-      </svg>
+      <img class="loader-mark" src="Assets/Logo%20%26%20Fevicon/udyamW.svg" alt="UDYAM E-Cell NPGC" />
       <div class="loader-brand">
         <span class="loader-brand-name">E-CELL</span>
         <span class="loader-brand-sub">NPGC &middot; LUCKNOW</span>
@@ -67,12 +62,7 @@
       <nav class="nav-container" aria-label="Main navigation">
 
         <a href="index.html" class="nav-brand" aria-label="E-Cell NPGC Home">
-          <div class="nav-logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40" fill="none">
-              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.1)"/>
-              <text x="20" y="26" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#4cac00">E</text>
-            </svg>
-          </div>
+          <div class="nav-logo-mark" aria-hidden="true"></div>
           <div class="nav-brand-text">
             <span class="nav-brand-main">E-Cell</span>
             <span class="nav-brand-sub">NPGC &middot; Lucknow</span>
@@ -86,7 +76,7 @@
           <li><a href="team.html"              class="nav-link" id="nav-team">Team</a></li>
           <li><a href="index.html#stats"       class="nav-link" id="nav-stats">Impact</a></li>
           <li><a href="gallery.html"           class="nav-link" id="nav-gallery">Gallery</a></li>
-          <li><a href="blog.html"              class="nav-link" id="nav-blog">Blog</a></li>
+          <li><a href="blog/blog.html"              class="nav-link" id="nav-blog">Blog</a></li>
           <li><a href="#contact"               class="nav-link" id="nav-contact">Contact</a></li>
         </ul>
 
@@ -98,7 +88,7 @@
         </a>
 
         <!-- Hamburger (mobile) -->
-        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
           <span></span><span></span><span></span>
         </button>
       </nav>
@@ -111,7 +101,7 @@
           <li><a href="team.html"              class="mobile-link" id="mob-team">Team</a></li>
           <li><a href="index.html#stats"       class="mobile-link" id="mob-stats">Impact</a></li>
           <li><a href="gallery.html"           class="mobile-link" id="mob-gallery">Gallery</a></li>
-          <li><a href="blog.html"              class="mobile-link" id="mob-blog">Blog</a></li>
+          <li><a href="blog/blog.html"              class="mobile-link" id="mob-blog">Blog</a></li>
           <li><a href="#contact"               class="mobile-link" id="mob-contact">Contact</a></li>
         </ul>
         <a href="contact.html" class="mobile-cta-btn" id="mob-join">Join the Cell &rarr;</a>
@@ -138,10 +128,10 @@
     <!-- ── FORM SECTION ───────────────────────────────────────── -->
     <section class="contact-section" aria-label="E-Cell Inquiry Form">
       <div class="contact-form-card" data-reveal data-reveal-delay="280">
-        
+
         <!-- Form Tag -->
         <form class="contact-form" id="contactForm">
-          
+
           <!-- Row 1: Name and Email -->
           <div class="form-row">
             <div class="form-group">
@@ -210,10 +200,7 @@
       <div class="footer-container">
         <div class="footer-col footer-brand-col">
           <div class="footer-logo">
-            <svg viewBox="0 0 40 40" fill="none" width="34" height="34" aria-hidden="true">
-              <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="#4cac00" stroke-width="1.5" fill="rgba(76,172,0,0.08)"/>
-              <text x="20" y="26" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="#4cac00">E</text>
-            </svg>
+
             <span>UDYAM E-Cell</span>
           </div>
           <p class="footer-bio">UDYAM E-Cell is the student entrepreneurship cell at National Post Graduate College, Lucknow. We organize workshops, pitch events, and mentorship for students.</p>
@@ -238,7 +225,7 @@
             <li><a href="team.html"              class="footer-link" id="flink-team">Our Team</a></li>
             <li><a href="index.html#stats"       class="footer-link" id="flink-impact">Impact</a></li>
             <li><a href="gallery.html"           class="footer-link" id="flink-gallery">Gallery</a></li>
-            <li><a href="blog.html"              class="footer-link" id="flink-blog">Blog</a></li>
+            <li><a href="blog/blog.html"              class="footer-link" id="flink-blog">Blog</a></li>
             <li><a href="contact.html"           class="footer-link" id="flink-join">Join Us</a></li>
             <li><a href="contact.html"     class="footer-link" id="flink-contact">Connect With Us</a></li>
           </ul>
@@ -288,7 +275,7 @@
   </div><!-- /site-wrapper -->
 
   <script src="app.js"></script>
-  
+
   <!-- EmailJS Send Form Script -->
   <script type="text/javascript">
     // Pre-select purpose dropdown based on URL query parameter

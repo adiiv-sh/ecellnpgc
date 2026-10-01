@@ -223,9 +223,9 @@ html.no-js #site { opacity: 1 !important; }
 }
 .nav-brand:hover { opacity: .8; }
 .nav-logo-mark {
-  width: clamp(148px, 14vw, 180px); height: 50px;
+  width: clamp(180px, 16vw, 210px); height: 60px;
   flex-shrink: 0;
-  background: url("Assets/Logo%20%26%20Fevicon/logo%201.svg") center / calc(100% - 10px) auto no-repeat;
+  background: url("Assets/Logo%20%26%20Fevicon/udyamW.svg") 50.55% 50.4% / clamp(500px, 46vw, 620px) auto no-repeat;
 }
 .nav-brand-logo { display: block; width: clamp(148px, 14vw, 180px); height: 50px; flex-shrink: 0; }
 .brand-logo-img { width: calc(100% - 10px); height: calc(100% - 10px); margin: auto; object-fit: cover; object-position: center; }
@@ -292,10 +292,11 @@ html.no-js #site { opacity: 1 !important; }
 }
 .nav-hamburger:hover { background: var(--lime-pale); }
 .nav-hamburger span {
-  display: block; width: 20px; height: 2px;
+  display: block; width: 22px; height: 2px; flex: 0 0 2px;
   background: var(--ink-800); border-radius: var(--r-pill);
   transition: transform var(--t-base) ease, opacity var(--t-base) ease;
   will-change: transform;
+  pointer-events: none;
 }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
@@ -1462,11 +1463,11 @@ details[open] .faculty-summary-icon {
   display: flex; align-items: center; gap: 10px;
   font-family: var(--font-h); font-size: clamp(.9rem, 2.2vw, 1rem);
   font-weight: 700; color: var(--pearl-50); margin-bottom: 14px; letter-spacing: -.02em;
-  position: relative; width: 100px; height: 35px;
+  position: relative; width: 180px; height: 54px;
 }
 .footer-logo::before {
   content: ''; position: absolute; inset: 0;
-  background: url("Assets/Logo%20%26%20Fevicon/logo%202.svg") center / cover no-repeat;
+  background: url("Assets/Logo%20%26%20Fevicon/udyamB.svg") 50.55% 50.4% / 560px auto no-repeat;
 }
 .footer-logo > svg, .footer-logo > span, .footer-logo > picture {
   position: absolute; width: 1px; height: 1px; overflow: hidden;
@@ -1538,12 +1539,24 @@ details[open] .faculty-summary-icon {
   margin-bottom: 12px;
 }
 .footer-map-embed {
-  width: 100%; height: auto; border-radius: var(--r-md);
+  width: 100%; height: 250px;
   overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .footer-map-embed iframe {
+  display: block;
   width: 100% !important;
+  height: 100%;
+  border: 0;
 }
+.footer-map-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: #c3cec0;
+  font-size: .76rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer-map-link:hover { color: var(--lime); }
 
 .footer-bottom {
   max-width: 1200px; margin: 0 auto;
@@ -2304,6 +2317,34 @@ details[open] .faculty-summary-icon {
   object-fit: cover;
   transition: transform 0.6s ease;
 }
+.post-hero-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  aspect-ratio: 21 / 7;
+  padding: clamp(24px, 6vw, 64px);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(76,172,0,.14), transparent 38%),
+    linear-gradient(135deg, var(--lime-pale), var(--pearl-300));
+  text-align: center;
+}
+.post-hero-message span {
+  display: block;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--ink-950);
+  font-family: var(--font-h);
+  font-size: clamp(1.25rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.post-hero-message p {
+  margin-top: 12px;
+  color: var(--ink-600);
+  font-size: clamp(.88rem, 1.8vw, 1.05rem);
+}
+.blog-title a:hover { color: var(--lime-dark); }
 .post-hero-img-wrap:hover .post-hero-img {
   transform: scale(1.02);
 }
@@ -3065,6 +3106,52 @@ details[open] .faculty-summary-icon {
   color: var(--ink-500);
   line-height: 1.5;
   margin: 0;
+}
+
+/* Keep content cards crisp and restrained across pages. */
+:is(
+  .stats-container,
+  .about-visual-card,
+  .pillar-card,
+  .value-card,
+  .initiative-card,
+  .team-card,
+  .faculty-card,
+  .featured-blog-card,
+  .blog-card,
+  .gallery-card,
+  .contact-form-card,
+  .sidebar-card,
+  .sector-card,
+  .podium-card,
+  .consolation-card,
+  .stall-card,
+  .highlight-card,
+  .speaker-card,
+  .testimonial-card,
+  .report-team-card,
+  .startup-card,
+  .achievement-card,
+  .tp-card
+) {
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(17,24,20,.08);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:is(
+  .initiative-card,
+  .team-card,
+  .faculty-card,
+  .featured-blog-card,
+  .blog-card,
+  .gallery-card,
+  .achievement-card,
+  .tp-card
+):hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(17,24,20,.08);
 }
 
 @media (max-width: 768px) {
