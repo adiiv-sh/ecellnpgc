@@ -1661,7 +1661,7 @@ details[open] .faculty-summary-icon {
   .hero-scroll-cue   { display: none; }
 
   /* Stats — 2-col grid */
-  .stats-bar { transform: translateY(-18px); }
+  .stats-bar { transform: none; }
   .stats-container { gap: 8px; padding: 14px 12px; }
   .stat-divider { display: none; }
   .stat-item {
@@ -1736,12 +1736,11 @@ details[open] .faculty-summary-icon {
   .hero-eyebrow  { font-size: .62rem; padding: 5px 11px; }
   .hero-headline { font-size: clamp(1.9rem, 9.5vw, 2.4rem); gap: 0; }
   .hero-description { font-size: .86rem; margin-bottom: 18px; }
-  .hero-actions  { flex-direction: row; gap: 12px; margin-bottom: 0; }
+  .hero-actions  { flex-direction: row; gap: 12px; margin-bottom: 8px; }
   .hero-actions .btn-primary,
   .hero-actions .btn-outline { width: auto; justify-content: center; }
 
   /* Stats */
-  .stats-bar { transform: translateY(-14px); }
   .stats-container { padding: 12px 10px; gap: 6px; border-radius: var(--r-lg); }
   .stat-item { padding: 10px 6px; border-radius: var(--r-md); }
   .stat-number { font-size: clamp(1.3rem, 7vw, 1.6rem); }
@@ -1820,7 +1819,6 @@ details[open] .faculty-summary-icon {
   .hero-headline   { font-size: clamp(1.4rem, 4.5vh, 1.8rem); }
   .hero-description { display: none; }
   .hero-actions    { margin-bottom: 14px; }
-  .stats-bar       { transform: translateY(-10px); }
 }
 
 /* =================================================================
