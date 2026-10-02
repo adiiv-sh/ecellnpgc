@@ -20,6 +20,39 @@ const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
 const isMobile = () => window.innerWidth <= 768;
 const isTouch  = () => window.matchMedia('(pointer: coarse)').matches;
 
+/* ── Rotating homepage headline ───────────────────────────────── */
+(function initHeroRotator() {
+  const phrase = $('#heroRotatingPhrase');
+  if (!phrase) return;
+
+  const phrases = ['ventures', 'sapno se startup', 'ideas se impact', 'soch se shuruaat'];
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0;
+  let timer;
+
+  function stop() {
+    window.clearInterval(timer);
+    timer = undefined;
+  }
+
+  function start() {
+    stop();
+    if (reducedMotion.matches || document.hidden) return;
+    timer = window.setInterval(() => {
+      phrase.classList.add('is-changing');
+      window.setTimeout(() => {
+        current = (current + 1) % phrases.length;
+        phrase.textContent = phrases[current];
+        phrase.classList.remove('is-changing');
+      }, 220);
+    }, 2600);
+  }
+
+  document.addEventListener('visibilitychange', start);
+  reducedMotion.addEventListener('change', start);
+  start();
+})();
+
 /* ══════════════════════════════════════════════════════════════
    1. LOADER
    ══════════════════════════════════════════════════════════════ */
