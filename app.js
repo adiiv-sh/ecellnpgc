@@ -111,12 +111,6 @@ const isTouch  = () => window.matchMedia('(pointer: coarse)').matches;
       // Show site with class (CSS handles transition)
       if (siteEl) siteEl.classList.add('visible');
 
-      // Show sticky bar on mobile if already scrolled
-      if (isMobile() && window.scrollY > 100) {
-        const sticky = $('#mobileStickyBar');
-        if (sticky) sticky.classList.add('visible');
-      }
-
       // Remove loader from DOM after fade
       setTimeout(() => {
         loader.style.display = 'none';
@@ -356,27 +350,6 @@ document.addEventListener('DOMContentLoaded', () => {
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
-/* ══════════════════════════════════════════════════════════════
-   8. MOBILE STICKY BAR
-   ══════════════════════════════════════════════════════════════ */
-(function initStickyBar() {
-  const bar = $('#mobileStickyBar');
-  if (!bar) return;
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!isMobile() || ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      bar.classList.toggle('visible', window.scrollY > 100);
-      ticking = false;
-    });
-  }, { passive: true });
-
-  // Handle resize (phone rotated to desktop)
-  window.addEventListener('resize', () => {
-    if (!isMobile()) bar.classList.remove('visible');
-  }, { passive: true });
-})();
 
 /* ══════════════════════════════════════════════════════════════
    11. SMOOTH ANCHOR SCROLL

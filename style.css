@@ -1481,14 +1481,14 @@ details[open] .faculty-summary-icon {
   font-size: clamp(.76rem, 1.8vw, .84rem); color: #c3cec0;
   line-height: 1.72; margin-bottom: 20px; max-width: 300px;
 }
-.footer-socials { display: flex; gap: 8px; flex-wrap: wrap; }
+.footer-socials { display: flex; gap: 10px; flex-wrap: wrap; }
 .f-social {
-  width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,.28);
+  width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.28);
   display: flex; align-items: center; justify-content: center; color: #c3cec0;
   transition: border-color var(--t-fast) ease, color var(--t-fast) ease, background var(--t-fast) ease, transform var(--t-fast) ease;
-  will-change: transform; min-width: 34px;
+  will-change: transform; min-width: 42px;
 }
-.f-social svg { width: 14px; height: 14px; }
+.f-social svg { width: 20px; height: 20px; }
 .f-social:hover { border-color: var(--lime-light); color: var(--lime-light); background: rgba(76,172,0,.14); transform: translateY(-2px); }
 
 .footer-col-title {
@@ -1596,23 +1596,7 @@ details[open] .faculty-summary-icon {
 /* ═══════════════════════════════════════════════════════════════
    MOBILE STICKY CTA
    ═══════════════════════════════════════════════════════════════ */
-.mobile-sticky-cta {
-  display: none;
-}
-.mobile-sticky-btn {
-  flex: 1; display: flex; align-items: center; justify-content: center;
-  padding: 12px 14px; border-radius: var(--r-sm);
-  font-family: var(--font-h); font-size: .86rem; font-weight: 700;
-  background: var(--lime); color: #fff;
-  box-shadow: 0 3px 12px rgba(76,172,0,.28);
-  transition: background var(--t-fast) ease; min-height: 46px;
-}
-.mobile-sticky-btn:hover { background: var(--lime-dark); }
-.mobile-sticky-ghost {
-  background: transparent; color: var(--lime);
-  border: 1.5px solid var(--lime-pale2); box-shadow: none;
-}
-.mobile-sticky-ghost:hover { background: var(--lime-pale); }
+
 
 /* ── FOCUS + SCROLLBAR ──────────────────────────────────────── */
 :focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; border-radius: var(--r-sm); }
@@ -1721,27 +1705,6 @@ details[open] .faculty-summary-icon {
   .footer-bottom    { flex-direction: column; text-align: center; gap: 8px; }
   .footer-bio       { max-width: 100%; }
 
-  /* Sticky bar */
-  .mobile-sticky-cta {
-    display: flex;
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
-    background: rgba(249,251,248,.96);
-    border-top: 1px solid var(--pearl-200);
-    padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px));
-    gap: 8px;
-    will-change: transform, opacity;
-    transform: translateY(100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.4s var(--ease-out), opacity 0.4s var(--ease-out);
-  }
-  .mobile-sticky-cta.visible {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
-  }
-  .site-footer       { padding-bottom: 76px; }
-  .back-to-top       { bottom: 76px; right: 14px; width: 38px; height: 38px; }
 }
 
 /* ── SMALL PHONE  ≤ 480px ────────────────────────────────────── */
@@ -1811,8 +1774,8 @@ details[open] .faculty-summary-icon {
   .site-footer     { padding-top: clamp(24px,5vw,40px); }
   .footer-logo     { font-size: .88rem; }
   .footer-col-title { font-size: .66rem; margin-bottom: 12px; }
-  .f-social        { width: 30px; height: 30px; min-width: 30px; }
-  .f-social svg    { width: 12px; height: 12px; }
+  .f-social        { width: 36px; height: 36px; min-width: 36px; }
+  .f-social svg    { width: 16px; height: 16px; }
   .footer-copy, .footer-bottom-link { font-size: .62rem; }
 }
 
@@ -1946,6 +1909,9 @@ details[open] .faculty-summary-icon {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s var(--ease-out);
+}
+.blog-card-img-wrap img.blog-card-img-contain {
+  object-fit: contain;
 }
 .blog-card-img-wrap svg {
   width: 32%;
@@ -3173,10 +3139,9 @@ details[open] .faculty-summary-icon {
   }
 }
 
-/* ── PRINT ───────────────────────────────────────────────────── */
 @media print {
   .site-header, .loader-wrapper, .bg-canvas, .cursor-glow,
-  .back-to-top, .mobile-sticky-cta { display: none !important; }
+  .back-to-top { display: none !important; }
   #site { opacity: 1 !important; }
   body  { background: #fff; color: #000; }
   .hero-section { min-height: auto; padding-top: 20px; }

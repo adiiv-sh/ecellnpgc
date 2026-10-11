@@ -1,45 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Core Pages -->
   <url>
     <loc>https://ecellnpgc.com/</loc>
-  </url>
-  <url>
-    <loc>https://ecellnpgc.com/team.html</loc>
-  </url>
-  <url>
-    <loc>https://ecellnpgc.com/gallery.html</loc>
-  </url>
-  <url>
-    <loc>https://ecellnpgc.com/contact.html</loc>
-  </url>
-  <url>
-    <loc>https://ecellnpgc.com/privacy.html</loc>
-  </url>
-  <url>
-    <loc>https://ecellnpgc.com/terms.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ecellnpgc.com/blog/blog.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ecellnpgc.com/blog/aktu-visit.html</loc>
+    <loc>https://ecellnpgc.com/team.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ecellnpgc.com/blog/cm-yuva.html</loc>
+    <loc>https://ecellnpgc.com/gallery.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ecellnpgc.com/blog/Saarang_25.html</loc>
+    <loc>https://ecellnpgc.com/contact.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- Blog & Event Articles -->
   <url>
-    <loc>https://ecellnpgc.com/blog/Anual_Rport_25.html</loc>
-  </url>
-  <url>
-    <loc>https://ecellnpgc.com/blog/Hunar_LaunchPad_Expo.html</loc>
-  </url>
-  <url>
-    <loc>https://ecellnpgc.com/blog/udyam-e-cell.html</loc>
+    <loc>https://ecellnpgc.com/blog/blog1.0.2.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ecellnpgc.com/blog/blog1.0.1.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://ecellnpgc.com/blog/udyam-e-cell.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ecellnpgc.com/blog/aktu-visit.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ecellnpgc.com/blog/cm-yuva.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ecellnpgc.com/blog/Saarang_25.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ecellnpgc.com/blog/Anual_Rport_25.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ecellnpgc.com/blog/Hunar_LaunchPad_Expo.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal & Compliance -->
+  <url>
+    <loc>https://ecellnpgc.com/privacy.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ecellnpgc.com/terms.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
